@@ -77,6 +77,25 @@ def goto_auto():
         exit()
     else:
         setup.info("info","No Stored movement limits to start auto procedure")
+        
+def start_setup():
+    """
+check if at upper or lower limit
+if at upper limit skip
+goto upper limit
+comment saying to set lower limit
+keep going up/down while checking for speed settings while button is pressed
+wait for set button
+store lower limit steps
+comment to set upper limit dont allow movement below lower limitm while allowing for speed control
+wait till set button
+set upper limit steps
+popup to ask for save
+if yes save
+
+"""
+    pass
+    
 
 setup = App( title = "Setup Mode", bg = "light blue" )
 #title Area
