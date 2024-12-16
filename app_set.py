@@ -185,7 +185,7 @@ for step in steps:
     checkbox.text_size = 16
     checkboxes.append(checkbox)  # Save reference if needed
 
-checkboxes[0].value = True
+#checkboxes[0].value = True
 
 setup.set_full_screen()
 setup.display()
