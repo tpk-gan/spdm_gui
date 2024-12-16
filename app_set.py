@@ -165,23 +165,27 @@ setup_button.text_size = 16
 spacer_setup_button = Box ( setup_box, align = "top", height = 20, width = "fill" )
 
 #Steps_area
-Steps_box = Box ( setup, align = "right", width = "fill", height = "fill", enabled = False )
-sub_steps_box_1 = Box ( Steps_box, align = "top", width = "fill", height = 60 )
-checkbox_1 = CheckBox ( sub_steps_box_1, align = "left", text = "Started Procedure" )
-checkbox_1.text_size = 16
-sub_steps_box_2 = Box ( Steps_box, align = "top", width = "fill", height = 60 )
-checkbox_2 = CheckBox ( sub_steps_box_2, align = "left", text = "Reaching Upper Limit Switch" )
-checkbox_2.text_size = 16
-sub_steps_box_3 = Box ( Steps_box, align = "top", width = "fill", height = 60 )
-checkbox_3 = CheckBox ( sub_steps_box_3, align = "left", text = "Setting drilling limit" )
-checkbox_3.text_size = 16
-sub_steps_box_4 = Box ( Steps_box, align = "top", width = "fill", height = 60 )
-checkbox_4 = CheckBox ( sub_steps_box_4, align = "left", text = "Setting pseudo upper limit" )
-checkbox_4.text_size = 16
-sub_steps_box_5 = Box ( Steps_box, align = "top", width = "fill", height = 60 )
-checkbox_5 = CheckBox ( sub_steps_box_5, align = "left", text = "Procedure successfully completed" )
-checkbox_5.text_size = 16
+# List of checkbox texts
+steps = [
+    "Started Procedure",
+    "Reaching Upper Limit Switch",
+    "Setting drilling limit",
+    "Setting pseudo upper limit",
+    "Procedure successfully completed"
+]
 
+# Steps Box
+Steps_box = Box(setup, align="right", width="fill", height="fill", enabled=False)
+
+# Create sub-boxes and checkboxes dynamically
+checkboxes = []  # To store references to the checkboxes
+for step in steps:
+    sub_box = Box(Steps_box, align="top", width="fill", height=60)
+    checkbox = CheckBox(sub_box, align="left", text=step)
+    checkbox.text_size = 16
+    checkboxes.append(checkbox)  # Save reference if needed
+
+checkboxes[0].value = True
 
 setup.set_full_screen()
 setup.display()
